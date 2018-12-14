@@ -1,6 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import {observer} from 'mobx-react';
 import BigImage from "./BigImage";
 import SmaillImage from "./SmallImage";
+import pdpStore from "../stores/pdp-store";
 
 class Gallery extends React.Component {
     constructor() {
@@ -23,6 +26,7 @@ class Gallery extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <h1>this.state</h1>
                 <BigImage images={this.state.bigImages} />
                 <SmaillImage images={this.state.smallimages} passedFunc={this.clickImg}/>
             </React.Fragment>
@@ -31,4 +35,4 @@ class Gallery extends React.Component {
 
 }
 
-export default Gallery;
+export default observer(Gallery);
